@@ -1,0 +1,6 @@
+@Integrado.Server_HostAddress = http://localhost:5222
+
+GET {{Integrado.Server_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

@@ -1,0 +1,23 @@
+{
+  "Version": 1,
+  "Hash": "y0X1QqYgw2Ug4lKGY1N58Zu3o0g9uDr6I7csyWXU7+0=",
+  "Source": "Integrado.Server",
+  "BasePath": "_content/Integrado.Server",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [
+    {
+      "Identity": "D:\\PruebaTecnica\\Integrado\\integrado.client\\integrado.client.esproj",
+      "Version": 2,
+      "Source": "integrado.client",
+      "GetPublishAssetsTargets": "GetCurrentProjectPublishStaticWebAssetItems",
+      "AdditionalPublishProperties": "Configuration=Debug;Platform=AnyCPU",
+      "AdditionalPublishPropertiesToRemove": "WebPublishProfileFile;TargetFramework;RuntimeIdentifier;SelfContained",
+      "GetBuildAssetsTargets": "GetCurrentProjectBuildStaticWebAssetItems",
+      "AdditionalBuildProperties": "Configuration=Debug;Platform=AnyCPU",
+      "AdditionalBuildPropertiesToRemove": "WebPublishProfileFile;TargetFramework;RuntimeIdentifier;SelfContained"
+    }
+  ],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}
