@@ -5,25 +5,38 @@ import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-branch',
-  templateUrl: './branch.component.html',
-  styleUrl: './branch.component.css'
+  templateUrl: './branch.component.html'
 })
 export class BranchComponent implements OnInit {
-  public data: IBranch[] = [];
+  data!: IBranch[];
 
   constructor(private _branchService: BranchService,
-    private _route: Router) { }
+    private _route: Router) {}
 
   ngOnInit(): void {
-    this.GetBranches();
-    console.log(this.data);
+    this._branchService.GetData().subscribe(res => {
+      this.data = res;
+    });
   }
 
-  GetBranches() :void {
-   this.data = this._branchService.GetData();
+  New(): void {
+    this._route.navigate(['/BranchAdd']);
+
+  }
+
+  DeleteBranch(id?: number): void {
+    this._branchService.Delete(id).subscribe(opt=>{
+      this._branchService.GetData().subscribe(res => {
+        this.data = res;
+      })
+    });
   }
 
   ViewBranch(id?: number): void {
     this._route.navigate(['/BranchDetail', id]);
+  }
+
+  EditBranch(id?: number): void{
+    this._route.navigate(['/BranchEdit', id]);
   }
 }

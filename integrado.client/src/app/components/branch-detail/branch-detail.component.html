@@ -1,11 +1,34 @@
 <div class="container">
-  <div class="card" style="width: 18rem;">
+  <div class="card" style="width: 40rem;">
     <div class="card-body">
-      <h5 class="card-title">{{ data.Identificacion }}</h5>
-      <h6 class="card-subtitle mb-2 text-body-secondary">{{data.Direccion}}</h6>
-      <p class="card-text">{{ data.Descripcion }}</p>
-      <p class="card-text">{{ data.MonedaId }}</p>
-      <button class="btn btn-outline-primary" (click)="Eliminar(data.Codigo)">Eliminar</button>
+      <div class="input-group mb-3">
+        <span class="input-group-text">Fecha</span>
+        <input type="text" name="fechaCreacion" [ngModel]="data.fechaCreacion | date" maxlength="250" class="form-control" disabled>
+      </div>
+      <div class="input-group mb-3">
+        <span class="input-group-text">Descripción</span>
+        <input type="text" name="descripcion" [(ngModel)]="data.descripcion" maxlength="250" class="form-control" placeholder="Descripcion" disabled>
+      </div>
+
+      <div class="input-group mb-3">
+        <span class="input-group-text">Dirección</span>
+        <input type="text" name="direccion" [(ngModel)]="data.direccion" class="form-control" placeholder="Direccion" disabled>
+      </div>
+
+      <div class="input-group mb-3">
+        <span class="input-group-text" id="basic-addon2">Identificación</span>
+        <input type="text" name="identificacion" [(ngModel)]="data.identificacion" maxlength="250" class="form-control" placeholder="Identificacion" disabled>
+      </div>
+
+      <div class="input-group mb-3">
+        <span class="input-group-text">Moneda</span>
+        <select class="form-select" name="monedaId" [(ngModel)]="data.monedaId" disabled>
+          <option *ngFor="let v of moneys" value="{{v.codigo}}">{{v.descripcion}}</option>
+        </select>
+      </div>
+
+      <button class="btn btn-outline-primary" (click)="Eliminar(data.codigo)">Eliminar</button> |
+      <button class="btn btn-outline-primary" (click)="Editar(data.codigo)">Editar</button>
     </div>
   </div>
 </div>

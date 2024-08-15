@@ -7,25 +7,38 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Integrado.Server.Context;
 using Integrado.Server.Context.Entities;
+using System.Web.Http.Cors;
+using Integrado.Server.Dto;
+using AutoMapper;
 
 namespace Integrado.Server.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [EnableCors(origins:"*", headers:"*", methods:"*")]
     public class SucursalsController : ControllerBase
     {
         private readonly BDContext _context;
+        private readonly IMapper _mapper;
 
-        public SucursalsController(BDContext context)
+        public SucursalsController(BDContext context, IMapper mapper)
         {
             _context = context;
+            _mapper = mapper;
         }
 
-        // GET: api/Sucursals
+        //GET: api/Sucursals
+       //[HttpGet]
+       // public async Task<ActionResult<IEnumerable<Sucursal>>> GetSucursalsBt()
+       // {
+       //     var lista = await _context.SucursalsBt.ToListAsync();
+       //     return lista;
+       // }
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Sucursal>>> GetSucursalsBt()
+        public ActionResult<IEnumerable<Sucursal>> GetSucursalsBt()
         {
-            return await _context.SucursalsBt.ToListAsync();
+            var lista = _context.SucursalsBt.ToList();
+            return lista;
         }
 
         // GET: api/Sucursals/5
@@ -45,9 +58,11 @@ namespace Integrado.Server.Controllers
         // PUT: api/Sucursals/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutSucursal(int id, Sucursal sucursal)
+        public async Task<IActionResult> PutSucursal(int id, SucursalDto cucursalDto)
         {
-            if (id != sucursal.Codigo)
+
+            var sucursal = _mapper.Map<Sucursal>(cucursalDto);
+            if (id != sucursal.codigo)
             {
                 return BadRequest();
             }
@@ -76,12 +91,14 @@ namespace Integrado.Server.Controllers
         // POST: api/Sucursals
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        public async Task<ActionResult<Sucursal>> PostSucursal(Sucursal sucursal)
+        public async Task<ActionResult<Sucursal>> PostSucursal(SucursalDto sucursalDto)
         {
+            var sucursal = _mapper.Map<Sucursal>(sucursalDto);
+
             _context.SucursalsBt.Add(sucursal);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetSucursal", new { id = sucursal.Codigo }, sucursal);
+            return CreatedAtAction("GetSucursal", new { id = sucursal.codigo }, sucursal);
         }
 
         // DELETE: api/Sucursals/5
@@ -102,7 +119,7 @@ namespace Integrado.Server.Controllers
 
         private bool SucursalExists(int id)
         {
-            return _context.SucursalsBt.Any(e => e.Codigo == id);
+            return _context.SucursalsBt.Any(e => e.codigo == id);
         }
     }
 }

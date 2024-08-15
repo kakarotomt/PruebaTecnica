@@ -22,70 +22,70 @@ namespace Integrado.Server.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("Integrado.Server.Moneda", b =>
+            modelBuilder.Entity("Integrado.Server.Context.Entities.Moneda", b =>
                 {
-                    b.Property<int>("Codigo")
+                    b.Property<int>("codigo")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Codigo"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("codigo"));
 
-                    b.Property<string>("Descripcion")
+                    b.Property<string>("descripcion")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("Codigo");
+                    b.HasKey("codigo");
 
                     b.ToTable("MonedasBt");
                 });
 
-            modelBuilder.Entity("Integrado.Server.Sucursal", b =>
+            modelBuilder.Entity("Integrado.Server.Context.Entities.Sucursal", b =>
                 {
-                    b.Property<int>("Codigo")
+                    b.Property<int>("codigo")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Codigo"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("codigo"));
 
-                    b.Property<string>("Descripcion")
+                    b.Property<string>("descripcion")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Direccion")
+                    b.Property<string>("direccion")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime>("FechaCreacion")
+                    b.Property<DateTime>("fechaCreacion")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("Identificacion")
+                    b.Property<string>("identificacion")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("MonedaId")
+                    b.Property<int>("monedaId")
                         .HasColumnType("int");
 
-                    b.HasKey("Codigo");
+                    b.HasKey("codigo");
 
-                    b.HasIndex("MonedaId");
+                    b.HasIndex("monedaId");
 
                     b.ToTable("SucursalsBt");
                 });
 
-            modelBuilder.Entity("Integrado.Server.Sucursal", b =>
+            modelBuilder.Entity("Integrado.Server.Context.Entities.Sucursal", b =>
                 {
-                    b.HasOne("Integrado.Server.Moneda", "Moneda")
-                        .WithMany("Sucursales")
-                        .HasForeignKey("MonedaId")
+                    b.HasOne("Integrado.Server.Context.Entities.Moneda", "moneda")
+                        .WithMany("sucursales")
+                        .HasForeignKey("monedaId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("Moneda");
+                    b.Navigation("moneda");
                 });
 
-            modelBuilder.Entity("Integrado.Server.Moneda", b =>
+            modelBuilder.Entity("Integrado.Server.Context.Entities.Moneda", b =>
                 {
-                    b.Navigation("Sucursales");
+                    b.Navigation("sucursales");
                 });
 #pragma warning restore 612, 618
         }

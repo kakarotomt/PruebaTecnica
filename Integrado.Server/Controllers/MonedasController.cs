@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using Integrado.Server.Context;
 using Integrado.Server.Context.Entities;
 using AutoMapper;
+using Integrado.Server.Dto;
 
 namespace Integrado.Server.Controllers
 {
@@ -48,9 +49,11 @@ namespace Integrado.Server.Controllers
         // PUT: api/Monedas/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutMoneda(int id, Moneda moneda)
+        public async Task<IActionResult> PutMoneda(int id, MonedaDto monedaDto)
         {
-            if (id != moneda.Codigo)
+            var moneda = _mapper.Map<Moneda>(monedaDto);
+
+            if (id != moneda.codigo)
             {
                 return BadRequest();
             }
@@ -94,7 +97,7 @@ namespace Integrado.Server.Controllers
             }
           
 
-            return CreatedAtAction("GetMoneda", new { id = moneda.Codigo }, moneda);
+            return CreatedAtAction("GetMoneda", new { id = moneda.codigo }, moneda);
         }
 
         // DELETE: api/Monedas/5
@@ -115,7 +118,7 @@ namespace Integrado.Server.Controllers
 
         private bool MonedaExists(int id)
         {
-            return _context.MonedasBt.Any(e => e.Codigo == id);
+            return _context.MonedasBt.Any(e => e.codigo == id);
         }
     }
 }

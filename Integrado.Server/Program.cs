@@ -14,10 +14,20 @@ builder.Services.AddDbContext<BDContext>(
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddAutoMapper(typeof(Program));
-
+builder.Services.AddCors(opt => 
+                            {
+                                opt.AddPolicy(name: "angular", build =>
+                                {
+                                    build.AllowAnyOrigin();//"https://localhost:4200");
+                                    build.AllowAnyMethod();//"PUT", "POST", "GET", "DELETE");
+                                    build.AllowAnyHeader();
+                                }
+                                            );
+                            }
+                        );
 
 var app = builder.Build();
-
+app.UseCors("angular");
 app.UseDefaultFiles();
 app.UseStaticFiles();
 

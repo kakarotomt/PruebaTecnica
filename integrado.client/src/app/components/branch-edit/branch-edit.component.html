@@ -1,1 +1,38 @@
-<p>branch-edit works!</p>
+<div class="container">
+  <form autocomplete="off" (ngSubmit)="Guardar(f)" #f="ngForm">
+    <!--<div class="input-group mb-3">
+      <input class="form-control" type="text" [ngModel]="data.codigo" name="codigo" disabled>
+    </div>-->
+
+    <div class="input-group mb-3">
+      <span class="input-group-text">Fecha</span>
+      <input type="text" name="fechaCreacion" [ngModel]="data.fechaCreacion | date" maxlength="250" class="form-control" disabled>
+    </div>
+
+    <div class="input-group mb-3">
+      <span class="input-group-text">Descripción</span>
+      <input type="text" name="descripcion" [(ngModel)]="data.descripcion" maxlength="250" class="form-control" placeholder="Descripcion">
+    </div>
+
+    <div class="input-group mb-3">
+      <span class="input-group-text">Dirección</span>
+      <input type="text" name="direccion" [(ngModel)]="data.direccion" class="form-control" placeholder="Direccion">
+    </div>
+
+    <div class="input-group mb-3">
+      <span class="input-group-text" id="basic-addon2">Identificación</span>
+      <input type="text" name="identificacion" [(ngModel)]="data.identificacion" maxlength="250" class="form-control" placeholder="Identificacion">
+    </div>
+
+    <div class="input-group mb-3">
+      <span class="input-group-text">Moneda</span>
+      <select class="form-select" name="monedaId" [(ngModel)]="data.monedaId">
+        <option *ngFor="let v of moneys" value="{{v.codigo}}">{{v.descripcion}}</option>
+      </select>
+    </div>
+    <div class="input-group mb-3">
+
+      <input type="submit" class="input-group form-control" value="Actualizar" />
+    </div>
+  </form>
+</div>

@@ -5,12 +5,12 @@ namespace Integrado.Server.Context.Entities
     public class Sucursal
     {
         [Key]
-        public int Codigo { get; set; }
-        public string Descripcion { get; set; }
-        public string Direccion { get; set; }
-        public string Identificacion { get; set; }
-        public DateTime FechaCreacion { get; set; }
-        public int MonedaId { get; set; }
-        public Moneda Moneda { get; set; }
+        public int codigo { get; set; }
+        public string descripcion { get; set; }
+        public string direccion { get; set; }
+        public string identificacion { get; set; }
+        public DateTime fechaCreacion { get; set; }
+        public int monedaId { get; set; }
+        public Moneda moneda { get; set; }
     }
 }

@@ -1,24 +1,31 @@
 import { Injectable } from '@angular/core';
 import { IBranch } from '../interfaces/branch.interface'
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 @Injectable()
 export class BranchService {
-  constructor() {
-    console.log("servicio listo");
+
+  readonly url: string = "https://localhost:7003/api/Sucursals";
+  constructor(private http: HttpClient) { }
+
+  GetData(): Observable<IBranch[]> {
+    return this.http.get<IBranch[]>(this.url);
   }
 
-  GetData(): IBranch[] {
-    return [
-      { "Codigo": 1, "Descripcion": "Prueba1" },
-      { "Codigo": 2, "Descripcion": "Prueba2" },
-      { "Codigo": 3, "Descripcion": "Prueba3" }
-    ];
+  GetDetails(id: number): Observable<IBranch> {
+    return this.http.get<IBranch>(this.url + "/" + id);
   }
 
-  GetDetails(id: number): IBranch {
-    let branch = this.GetData().find((m) => m.Codigo == id);
-    return branch ?? { Codigo: 0, Descripcion: "" };
-;
+  Delete(id: number): Observable<any> {
+    return this.http.delete<IBranch>(this.url + "/" + id);
   }
 
+  Update(id: number, branch: IBranch): Observable<any> {
+    return this.http.put<IBranch>(this.url + "/" + id, branch);
+  }
+
+  Add(branch: IBranch): void {
+    this.http.post<IBranch>(this.url, branch).subscribe();
+  }
 }

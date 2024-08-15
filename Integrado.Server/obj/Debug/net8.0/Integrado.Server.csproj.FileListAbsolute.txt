@@ -256,3 +256,8 @@ D:\PruebaTecnica\Integrado\Integrado.Server\bin\Debug\net8.0\runtimes\win\lib\ne
 D:\PruebaTecnica\Integrado\Integrado.Server\bin\Debug\net8.0\runtimes\win\lib\net7.0\System.Windows.Extensions.dll
 D:\PruebaTecnica\Integrado\Integrado.Server\obj\Debug\net8.0\Integrado.Server.sourcelink.json
 D:\PruebaTecnica\Integrado\Integrado.Server\bin\Debug\net8.0\AutoMapper.dll
+D:\PruebaTecnica\Integrado\Integrado.Server\bin\Debug\net8.0\System.Web.Cors.dll
+D:\PruebaTecnica\Integrado\Integrado.Server\bin\Debug\net8.0\System.Net.Http.Formatting.dll
+D:\PruebaTecnica\Integrado\Integrado.Server\bin\Debug\net8.0\System.Web.Http.dll
+D:\PruebaTecnica\Integrado\Integrado.Server\bin\Debug\net8.0\System.Web.Http.Cors.dll
+D:\PruebaTecnica\Integrado\Integrado.Server\bin\Debug\net8.0\Newtonsoft.Json.Bson.dll
