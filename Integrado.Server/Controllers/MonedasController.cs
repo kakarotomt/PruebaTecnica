@@ -5,8 +5,9 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using Integrado.Server;
 using Integrado.Server.Context;
+using Integrado.Server.Context.Entities;
+using AutoMapper;
 
 namespace Integrado.Server.Controllers
 {
@@ -15,10 +16,12 @@ namespace Integrado.Server.Controllers
     public class MonedasController : ControllerBase
     {
         private readonly BDContext _context;
+        private readonly IMapper _mapper;
 
-        public MonedasController(BDContext context)
+        public MonedasController(BDContext context, IMapper mapper)
         {
             _context = context;
+            _mapper = mapper;
         }
 
         // GET: api/Monedas
@@ -76,10 +79,20 @@ namespace Integrado.Server.Controllers
         // POST: api/Monedas
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        public async Task<ActionResult<Moneda>> PostMoneda(Moneda moneda)
+        public async Task<ActionResult<Moneda>> PostMoneda(Dto.MonedaDto monedaDto)
         {
+            var moneda = _mapper.Map<Moneda>(monedaDto);
+
             _context.MonedasBt.Add(moneda);
-            await _context.SaveChangesAsync();
+            try
+            {
+                await _context.SaveChangesAsync();
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+          
 
             return CreatedAtAction("GetMoneda", new { id = moneda.Codigo }, moneda);
         }

@@ -1,0 +1,32 @@
+<div class="container">
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Codigo</th>
+        <th scope="col">Descripcion</th>
+        <th scope="col">Direccion</th>
+        <!--<th scope="col">Identificacion</th>-->
+        <!--<th scope="col">FechaCreacion</th>-->
+        <!--<th scope="col">Moneda</th>-->
+        <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let a of data">
+        <th scope="row">{{ a.Codigo }}</th>
+        <td>{{a.Descripcion}}</td>
+        <td>Direccion</td>
+        <!--<td>Identificacion</td>-->
+        <!--<td>Fecha Creacion</td>-->
+        <!--<td>Moneda</td>-->
+        <td>
+          <button class="btn btn-outline-primary" (click)="ViewBranch(a.Codigo)">Detalles</button>
+          <!--<a [routerLink]="['/BranchDetail']" class="btn btn-outline-primary">Detalles</a>--> |
+          <!--<a [routeLink]="['BranchDelete']" class="btn btn-outline-primary">Eliminar</a>--> |
+          <!--<a [routerLink]="['/BranchEdit']" class="btn btn-outline-primary">Editar</a>-->
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

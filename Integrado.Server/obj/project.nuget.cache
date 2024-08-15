@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "0pwwEjmK4sIZe36ZDXGainYB0UUHvnkE2AN+w7JeEGXZpQZECWvWK8qdQ9KLcwg8BkxWLEeitScDy7dkP69pOQ==",
+  "dgSpecHash": "MHHg5PVcEWJdgjQa89oBh+moocJawQSrLqAItAvw6rCzEpbgNRkJt21yOFKcPQTN1SLi2uwXJ8MWTLMasg4qIA==",
   "success": true,
   "projectFilePath": "D:\\PruebaTecnica\\Integrado\\Integrado.Server\\Integrado.Server.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\bryan\\.nuget\\packages\\automapper\\13.0.1\\automapper.13.0.1.nupkg.sha512",
     "C:\\Users\\bryan\\.nuget\\packages\\azure.core\\1.35.0\\azure.core.1.35.0.nupkg.sha512",
     "C:\\Users\\bryan\\.nuget\\packages\\azure.identity\\1.10.3\\azure.identity.1.10.3.nupkg.sha512",
     "C:\\Users\\bryan\\.nuget\\packages\\humanizer\\2.14.1\\humanizer.2.14.1.nupkg.sha512",

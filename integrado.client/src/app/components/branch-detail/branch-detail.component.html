@@ -1,0 +1,11 @@
+<div class="container">
+  <div class="card" style="width: 18rem;">
+    <div class="card-body">
+      <h5 class="card-title">{{ data.Identificacion }}</h5>
+      <h6 class="card-subtitle mb-2 text-body-secondary">{{data.Direccion}}</h6>
+      <p class="card-text">{{ data.Descripcion }}</p>
+      <p class="card-text">{{ data.MonedaId }}</p>
+      <button class="btn btn-outline-primary" (click)="Eliminar(data.Codigo)">Eliminar</button>
+    </div>
+  </div>
+</div>

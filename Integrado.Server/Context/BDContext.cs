@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Integrado.Server.Context.Entities;
+using Microsoft.EntityFrameworkCore;
 
 namespace Integrado.Server.Context
 {

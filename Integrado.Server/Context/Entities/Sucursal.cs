@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace Integrado.Server
+namespace Integrado.Server.Context.Entities
 {
     public class Sucursal
     {
@@ -12,13 +12,5 @@ namespace Integrado.Server
         public DateTime FechaCreacion { get; set; }
         public int MonedaId { get; set; }
         public Moneda Moneda { get; set; }
-    }
-
-    public class Moneda
-    {
-        [Key]
-        public int Codigo { get; set; }
-        public string Descripcion { get; set; }
-        public ICollection<Sucursal> Sucursales { get; set; }
     }
 }

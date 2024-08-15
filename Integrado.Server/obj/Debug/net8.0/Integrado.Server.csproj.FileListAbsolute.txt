@@ -254,3 +254,5 @@ D:\PruebaTecnica\Integrado\Integrado.Server\bin\Debug\net8.0\runtimes\win\lib\ne
 D:\PruebaTecnica\Integrado\Integrado.Server\bin\Debug\net8.0\runtimes\win\lib\net7.0\System.Drawing.Common.dll
 D:\PruebaTecnica\Integrado\Integrado.Server\bin\Debug\net8.0\runtimes\win\lib\net7.0\System.Security.Cryptography.ProtectedData.dll
 D:\PruebaTecnica\Integrado\Integrado.Server\bin\Debug\net8.0\runtimes\win\lib\net7.0\System.Windows.Extensions.dll
+D:\PruebaTecnica\Integrado\Integrado.Server\obj\Debug\net8.0\Integrado.Server.sourcelink.json
+D:\PruebaTecnica\Integrado\Integrado.Server\bin\Debug\net8.0\AutoMapper.dll
