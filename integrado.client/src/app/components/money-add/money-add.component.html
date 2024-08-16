@@ -1,1 +1,15 @@
-<p>money-add works!</p>
+<div class="container">
+  <form class="form-control" autocomplete="off" (ngSubmit)="Guardar(f)" #f="ngForm">
+
+    <div class="input-group mb-3">
+      <span class="input-group-text">Descripción</span>
+      <input type="text" required name="descripcion" [(ngModel)]="money.descripcion" maxlength="250" class="form-control" placeholder="Descripcion">
+    </div>
+    <div class="Danger container" *ngIf="msg.length">
+      {{msg}}
+    </div>
+    <div class="container">
+      <input type="submit" class="input-group form-control" value="Crear" />
+    </div>
+  </form>
+</div>

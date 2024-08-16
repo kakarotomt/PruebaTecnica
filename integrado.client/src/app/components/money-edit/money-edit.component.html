@@ -1,1 +1,18 @@
-<p>money-edit works!</p>
+<div class="container">
+  <form autocomplete="off" (ngSubmit)="Guardar(f)" #f="ngForm">
+
+
+
+    <div class="input-group mb-3">
+      <span class="input-group-text">Descripción</span>
+      <input type="text" required name="descripcion" [(ngModel)]="money.descripcion" maxlength="250" class="form-control" placeholder="Descripcion">
+    </div>
+    <div class="Danger container" *ngIf="msg.length">
+      {{msg}}
+    </div>
+    <div class="input-group mb-3">
+
+      <input type="submit" class="input-group form-control" value="Actualizar" />
+    </div>
+  </form>
+</div>

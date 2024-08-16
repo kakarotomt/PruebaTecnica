@@ -1,1 +1,28 @@
-<p>money works!</p>
+<div class="left-text">
+  <button class="btn btn-outline-primary" (click)="New()">Nuevo</button>
+</div>
+<div class="container">
+
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Codigo</th>
+        <th scope="col">Descripcion</th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let a of data">
+        <th scope="row">{{ a.codigo }}</th>
+        <td>{{a.descripcion}}</td>
+        <td>
+          <button class="btn btn-outline-primary" (click)="EditMoney(a.codigo)">Editar</button>
+          <!--<button class="btn btn-outline-primary" (click)="DeleteMoney(a.codigo)">Eliminar</button>-->
+
+
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

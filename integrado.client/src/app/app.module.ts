@@ -17,7 +17,6 @@ import { BranchComponent } from './components/branch/branch.component';
 import { BranchDetailComponent } from './components/branch-detail/branch-detail.component';
 import { BranchEditComponent } from './components/branch-edit/branch-edit.component';
 import { MoneyEditComponent } from './components/money-edit/money-edit.component';
-import { MoneyDetailComponent } from './components/money-detail/money-detail.component'
 import { MoneyService } from './services/money.service';
 import { BranchAddComponent } from './components/branch-add/branch-add.component';
 import { MoneyAddComponent } from './components/money-add/money-add.component';
@@ -33,7 +32,6 @@ import { MoneyAddComponent } from './components/money-add/money-add.component';
     BranchDetailComponent,
     BranchEditComponent,
     MoneyEditComponent,
-    MoneyDetailComponent,
     BranchAddComponent,
     MoneyAddComponent
   ],

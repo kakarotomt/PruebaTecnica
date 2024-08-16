@@ -21,7 +21,6 @@ export class BranchComponent implements OnInit {
 
   New(): void {
     this._route.navigate(['/BranchAdd']);
-
   }
 
   DeleteBranch(id?: number): void {

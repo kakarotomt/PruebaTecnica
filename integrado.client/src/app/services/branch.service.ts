@@ -25,7 +25,7 @@ export class BranchService {
     return this.http.put<IBranch>(this.url + "/" + id, branch);
   }
 
-  Add(branch: IBranch): void {
-    this.http.post<IBranch>(this.url, branch).subscribe();
+  Add(branch: IBranch): Observable<any> {
+    return this.http.post<IBranch>(this.url, branch);
   }
 }

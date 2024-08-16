@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { IBranch } from '../../interfaces/branch.interface';
 import { ActivatedRoute, Router } from '@angular/router';
 import { BranchService } from '../../services/branch.service';
-import { FormGroup, NgForm } from '@angular/forms';
+import { NgForm } from '@angular/forms';
 import { MoneyService } from '../../services/money.service';
 import { IMoney } from '../../interfaces/money.interface';
 import { OnInit } from '@angular/core'
@@ -14,7 +14,8 @@ import { OnInit } from '@angular/core'
 export class BranchAddComponent implements OnInit {
   data: IBranch = {};
   moneys: IMoney[] = [];
-  frmGroup: FormGroup;
+  msg: string = "";
+
   constructor(private _activatedRoute: ActivatedRoute,
     private _branchService: BranchService,
     private _moneyService: MoneyService,
@@ -28,9 +29,16 @@ export class BranchAddComponent implements OnInit {
   }
 
   Guardar(f: NgForm): void {
-    console.log("inicia post");
-    let res = this._branchService.Add(this.data);
-    this._route.navigate(['/Branch']);
+    if (f.valid) {
+
+      let res = this._branchService.Add(this.data).subscribe(opt => {
+        this._route.navigate(['/Branch']);
+      });
+    }
+    else {
+      this.msg = "No ha establecido correctamente el formulario";
+    }
+    
 
   }
 }
